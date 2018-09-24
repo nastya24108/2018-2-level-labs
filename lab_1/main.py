@@ -6,7 +6,7 @@ Count frequencies dictionary by the given arbitrary text
 
 
 def calculate_frequences(text: str) -> dict:
-    frequencies = {}
+    global frequencies = {}
 
     if text == None or type(text) != str:
         return frequencies
@@ -35,6 +35,7 @@ def calculate_frequences(text: str) -> dict:
 
 
 def filter_stop_words(freq_dict: dict, stop_words: tuple) -> dict:
+    
     new_frequencies = frequencies.copy()
 
     if stop_words == None or new_frequencies == None:
