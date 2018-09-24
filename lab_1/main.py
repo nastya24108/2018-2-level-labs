@@ -6,65 +6,40 @@ Count frequencies dictionary by the given arbitrary text
 
 
 def calculate_frequences(text: str) -> dict:
-    import string
-    global frequencies
-    frequencies = {}
+        spam_symb = """1234567890-_+=()"*&?^:%$;№'#"@!`~:<>/\|].,}[{"""
+        
+        for spam in text:
+            if spam in spam_symb:
+                text = text.replace(spam, ' ')
 
-    if text == None or type(text) != str:
-        return frequencies
-    elif not text:
-        return frequencies
-    elif type(text) == str:
         split_text = text.lower()
         split_text = text.split(' ')
-        for word in split_text:
-            for i in string.punctuation:
-                text = text.replace(i, '')
-                
-            if not word or word.isdigit():
-                continue
-            
-            if frequencies.get(word) == None:
-                frequencies[word] = 1
-            
-            else:
-                frequencies.update({word: frequencies[word] + 1})
-                
-        return frequencies
-    
-#         spam_symb = """1234567890-_+=()"*&?^:%$;№'#"@!`~:<>/\|].,}[{"""
-#         for spam in text:
-#             if spam in spam_symb:
-#                 text = text.replace(spam, ' ')
-
-#         split_text = text.lower()
-#         split_text = text.split(' ')
         
-#         if '\n' in split_text or '' in split_text:
-#             while '\n' in split_text:
-#                 split_text.remove('\n')
-#             while '' in split_text:
-#                 split_text.remove('')   
+        if '\n' in split_text or '' in split_text:
+            while '\n' in split_text:
+                split_text.remove('\n')
+            while '' in split_text:
+                split_text.remove('')   
       
-#         for word in split_text:
-#             new_line = ''
-#             for symbol in word:
-#                 if symbol not in spam_symb:
-#                     new_line = new_line + symbol
+        for word in split_text:
+            new_line = ''
+            for symbol in word:
+                if symbol not in spam_symb:
+                    new_line = new_line + symbol
             
-#             if new_line:
-#                 if new_line not in frequencies:
-#                     frequencies[new_line] = 1
-#                 else:
-#                     new_value = frequencies[new_line] + 1
-#                     frequencies[new_line] = new_value
+            if new_line:
+                if new_line not in frequencies:
+                    frequencies[new_line] = 1
+                else:
+                    new_value = frequencies[new_line] + 1
+                    frequencies[new_line] = new_value
                     
-#             quantity_words = split_text.count(word)
-#             frequencies[word] = quantity_words
+            quantity_words = split_text.count(word)
+            frequencies[word] = quantity_words
             
-#         return frequencies
-#     else:
-#         return frequencies
+        return frequencies
+    else:
+        return frequencies
 
 
 
