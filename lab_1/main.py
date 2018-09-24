@@ -34,11 +34,9 @@ def calculate_frequences(text: str) -> dict:
                     new_value = frequencies[new_line] + 1
                     frequencies[new_line] = new_value
                     
-            quantity_words = split_text.count(word)
-            frequencies[word] = quantity_words
+#             quantity_words = split_text.count(word)
+#             frequencies[word] = quantity_words
             
-        return frequencies
-    else:
         return frequencies
 
 
