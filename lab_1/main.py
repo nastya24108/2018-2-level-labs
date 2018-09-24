@@ -14,8 +14,9 @@ def calculate_frequences(text: str) -> dict:
     elif not text:
         return frequencies
     elif type(text) == str:
+        spam_symb = """1234567890-_+=()"*&?^:%$;№'#"@!`~:<>/\|].,}[{"""
         for spam in text:
-            if spam in """1234567890-_+=()"*&?^:%$;№'#"@!`~:<>/\|].,}[{""":
+            if spam in spam_symb:
                 text = text.replace(spam, ' ')
 
         split_text = text.lower()
@@ -26,10 +27,22 @@ def calculate_frequences(text: str) -> dict:
                 split_text.remove('\n')
             while '' in split_text:
                 split_text.remove('')   
-
+      
         for word in split_text:
-            quantity_words = split_text.count(word)
-            frequencies[word] = quantity_words
+            new_line = ''
+            for symbol in word:
+                if symbol not in spam_symb:
+                    new_line = new_line + symbol
+            
+            if new_line:
+                if new_line not in frequencies:
+                    frequencies[new_line] = 1
+                else:
+                    new_value = frequencies[new_line] + 1
+                    frequencies[new_line] = new_value
+                    
+#             quantity_words = split_text.count(word)
+#             frequencies[word] = quantity_words
             
         return frequencies
     else:
