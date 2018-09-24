@@ -6,37 +6,32 @@ Count frequencies dictionary by the given arbitrary text
 
 
 def calculate_frequences(text: str) -> dict:
-        spam_symb = """1234567890-_+=()"*&?^:%$;№'#"@!`~:<>/\|].,}[{"""
-        
+    global frequencies
+    frequencies = {}
+
+    if text == None or type(text) != str:
+        return frequencies
+    elif not text:
+        return frequencies
+    elif type(text) == str:
         for spam in text:
-            if spam in spam_symb:
+            if spam in """1234567890-_+=()"*&?^:%$;№'#"@!`~:<>/\|].,}[{""":
                 text = text.replace(spam, ' ')
 
         split_text = text.lower()
         split_text = text.split(' ')
-        
-        if '\n' in split_text or '' in split_text:
-            while '\n' in split_text:
-                split_text.remove('\n')
-            while '' in split_text:
-                split_text.remove('')   
-      
+
+            if '\n' in split_text or '' in split_text:
+                while '\n' in split_text:
+                    split_text.remove('\n')
+                while '' in split_text:
+                    split_text.remove('')
         for word in split_text:
-            new_line = ''
-            for symbol in word:
-                if symbol not in spam_symb:
-                    new_line = new_line + symbol
-            
-            if new_line:
-                if new_line not in frequencies:
-                    frequencies[new_line] = 1
-                else:
-                    new_value = frequencies[new_line] + 1
-                    frequencies[new_line] = new_value
-                    
-#             quantity_words = split_text.count(word)
-#             frequencies[word] = quantity_words
-            
+            quantity_words = split_text.count(word)
+            frequencies[word] = quantity_words
+
+        return frequencies
+    else:
         return frequencies
 
 
