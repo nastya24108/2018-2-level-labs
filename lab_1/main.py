@@ -21,11 +21,12 @@ def calculate_frequences(text: str) -> dict:
         split_text = text.lower()
         split_text = text.split(' ')
 
-            if '\n' in split_text or '' in split_text:
-                while '\n' in split_text:
-                    split_text.remove('\n')
-                while '' in split_text:
-                    split_text.remove('')
+        if '\n' in split_text or '' in split_text:
+            while '\n' in split_text:
+                split_text.remove('\n')
+            while '' in split_text:
+                split_text.remove('')
+                
         for word in split_text:
             quantity_words = split_text.count(word)
             frequencies[word] = quantity_words
