@@ -8,7 +8,7 @@ Count frequencies dictionary by the given arbitrary text
 def calculate_frequences(text: str) -> dict:
     frequencies = {}
 
-    if text == None or text.isdigit():
+    if text == None or type(text) != str:
         return frequencies
     elif not text:
         return frequencies
