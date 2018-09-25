@@ -16,7 +16,8 @@ def calculate_frequences(text: str) -> dict:
         for spam in text:
             if spam in """1234567890-_+=()"*&?^:%$;№'#"@3!`~:<>/\|].,}[{""":
                 text = text.replace(spam, ' ')
-        
+                
+        text = text.lower()
         text = list(text)
 
         if '\n' in text or '' in text:
@@ -25,7 +26,6 @@ def calculate_frequences(text: str) -> dict:
             while '' in text:
                 text.remove('')
                     
-        split_text = text.lower()
         split_text = split_text.split(' ')
     
         for word in split_text:
