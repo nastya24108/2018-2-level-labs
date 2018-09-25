@@ -40,7 +40,11 @@ def filter_stop_words(freq_dict: dict, stop_words: tuple) -> dict:
 
     if stop_words == None or freq_dict == None:
         return None
-
+    
+    for key in freq_dict:
+        if key != str(key):
+            freq_dict.pop(key)
+        
     if stop_words:
         new_frequencies = freq_dict.copy()
         
