@@ -55,7 +55,7 @@ def get_top_n(frequencies: dict, top_n: int) -> tuple:
     if not top_n > 0:
         return ()
     else:
-        top_n_dictijnary = sorted(frequencies, key=frequencies.__getitem__, reverse=True)
-        top_n_dictijnary = tuple(top_n_dictijnary[:top_n])
-        return top_n_dictijnary
+        top_n_dictionary = sorted(frequencies, key=frequencies.__getitem__, reverse=True)
+        top_n_dictionary = tuple(top_n_dictionary[:top_n])
+        return top_n_dictionary
 
