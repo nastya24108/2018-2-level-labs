@@ -14,7 +14,7 @@ def calculate_frequences(text: str) -> dict:
         return frequencies
     elif type(text) == str:
         for spam in text:
-            if spam in """1234567890-_+=()"*&?^:%$;№'#"@!`~:<>/\|].,}[{""":
+            if spam in """1234567890-_+=()"*&?^:%$;№'#"@3!`~:<>/\|].,} \n [{""":
                 text = text.replace(spam, ' ')
 
         split_text = text.lower()
@@ -44,7 +44,7 @@ def filter_stop_words(freq_dict: dict, stop_words: tuple) -> dict:
     if stop_words:
         new_frequencies = freq_dict.copy()
         
-        for key in new_frequencies.keys():
+        for key in freq_dict.keys():
             if key != str(key):
                 new_frequencies.pop(key)
                 
