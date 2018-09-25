@@ -14,7 +14,7 @@ def calculate_frequences(text: str) -> dict:
         return frequencies
     elif type(text) == str:
         for spam in text:
-            if spam in """1234567890-_+=()"*&?^:%$;№'#"@3!`~:<>/\|].,} \n [{""":
+            if spam in """1234567890-_+=()"*&?^:%$;№'#"@3!`~:<>/\|].,}[{""":
                 text = text.replace(spam, ' ')
 
         split_text = text.lower()
