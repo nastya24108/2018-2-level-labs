@@ -39,7 +39,7 @@ def calculate_frequences(text: str) -> dict:
 def filter_stop_words(freq_dict: dict, stop_words: tuple) -> dict:
 
     if stop_words == None or freq_dict == None:
-        return {}
+        return None
 
     if stop_words:
         new_frequencies = freq_dict.copy()
