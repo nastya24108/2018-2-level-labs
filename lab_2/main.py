@@ -74,6 +74,10 @@ def choose_best(frequencies: dict, candidates: tuple) -> str:
             if int(frequencies[i]) > max_num:
                 max_num = int(frequencies[i])
                 max_num_word = i
+            if int(frequencies[i]) == max_num:
+                if max_num_word > word:
+                    max_num = int(frequencies[i])
+                    max_num_word = i
 
     return max_num_word
 
