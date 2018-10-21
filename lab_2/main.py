@@ -95,7 +95,7 @@ def spell_check_word(frequencies: dict, as_is_words: tuple, word: str) -> str:
 
     candidates = propose_candidates(word)
     known_candidates = keep_known(tuple(candidates), frequencies)
-    best_variant = choose_best(frequencies, candidates)
+    best_variant = choose_best(frequencies, tuple(candidates))
 
     return best_variant
 
