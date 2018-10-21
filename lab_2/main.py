@@ -63,7 +63,7 @@ def keep_known(candidates: tuple, frequencies: dict) -> list:
 def choose_best(frequencies: dict, candidates: tuple) -> str:
 
     if not candidates or not frequencies:
-        return 'UNC'
+        return 'UNK'
 
     max_num = 0
     max_num_word = ''
@@ -79,7 +79,7 @@ def choose_best(frequencies: dict, candidates: tuple) -> str:
 def spell_check_word(frequencies: dict, as_is_words: tuple, word: str) -> str:
 
     if not frequencies or frequencies == None:
-        return 'UNC'
+        return 'UNK'
 
     if word in as_is_words:
         return word
