@@ -16,7 +16,8 @@ def propose_candidates(word: str, max_depth_permutations: int=1) -> list:
 
     if not word:
         return []
-    if max_depth_permutations <= 0 or type(max_depth_permutations) != int:
+
+    if type(max_depth_permutations) != int or max_depth_permutations <= 0:
         return []
 
     candidates = []
