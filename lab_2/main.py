@@ -50,7 +50,7 @@ def propose_candidates(word: str, max_depth_permutations: int=1) -> list:
 
 def keep_known(candidates: tuple, frequencies: dict) -> list:
 
-    if not candidates or not frequencies:
+    if not candidates or not frequencies or type(candidates) != tuple:
         return []
 
     known_candidates = []
