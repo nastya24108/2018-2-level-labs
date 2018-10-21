@@ -30,7 +30,7 @@ def propose_candidates(word: str, max_depth_permutations: int=1) -> list:
             candidates.append(word_1)
 
     for i in alphabet:
-        for l in range(len(word)):
+        for l in range(len(word) + 1):
             word_2 = word[:l] + str(i) + word[l:]
             if word_2 not in candidates:
                 candidates.append(word_2)
