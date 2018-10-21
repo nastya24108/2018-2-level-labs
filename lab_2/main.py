@@ -63,15 +63,15 @@ def keep_known(candidates: tuple, frequencies: dict) -> list:
 def choose_best(frequencies: dict, candidates: tuple) -> str:
 
     if not candidates or not frequencies:
-        return 'UNK'
+        return 'UNC'
 
     max_num = 0
     max_num_word = ''
 
     for i in candidates:
         if i in frequencies:
-            if int(frequencies[key]) > max_num:
-                max_num = int(frequencies[key])
+            if int(frequencies[i]) > max_num:
+                max_num = int(frequencies[i])
                 max_num_word = i
 
     return max_num_word
