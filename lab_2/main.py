@@ -76,7 +76,22 @@ def choose_best(frequencies: dict, candidates: tuple) -> str:
 
     return max_num_word
 
+def spell_check_word(frequencies: dict, as_is_words: tuple, word: str) -> str:
 
+    if not frequencies or frequencies == None:
+        return 'UNC'
+
+    if word in as_is_words:
+        return word
+
+    if word in frequencies:
+        return word
+
+    candidates = propose_candidates(word)
+    known_candidates = keep_known(tuple(candidates), frequencies)
+    best_variant = choose_best(frequencies, candidates)
+
+    return best_variant
 
 
 
