@@ -87,7 +87,13 @@ def spell_check_word(frequencies: dict, as_is_words: tuple, word: str) -> str:
         return 'UNK'
 
     if as_is_words != None and type(as_is_words) == tuple:
-        if word in as_is_words:
+        as_is_words_new = as_is_words[:]
+        as_is_words_new = list(as_is_words_new)
+
+        for i in as_is_words_new:
+            i = i.lower(as_is_words_new)
+
+        if word in as_is_words_new:
             return word
 
     if word in frequencies:
