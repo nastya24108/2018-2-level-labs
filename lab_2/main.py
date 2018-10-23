@@ -89,7 +89,11 @@ def spell_check_word(frequencies: dict, as_is_words: tuple, word: str) -> str:
 
     if as_is_words != None and type(as_is_words) == tuple:
         as_is_words_new = as_is_words[:]
-        as_is_words_new = [as_is_words_new]
+
+        if type(as_is_words_new) == tuple:
+            as_is_words_new = list(as_is_words_new)
+        else:
+            as_is_words_new = [as_is_words_new]
 
         for i, w in enumerate(as_is_words_new):
             as_is_words_new[i] = w.lower()
