@@ -42,3 +42,5 @@ def encode(storage_instance, corpus) -> list:
 
 def split_by_sentence(text: str) -> list:
     pass
+
+print('hello')
