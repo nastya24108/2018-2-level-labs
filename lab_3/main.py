@@ -81,7 +81,20 @@ class NGramTrie:
         return self.gram_log_probabilities
 
     def predict_next_sentence(self, prefix: tuple) -> list:
-        pass
+        if prefix and type(prefix) == tuple:
+            lst = []
+            prefix_lst = [prefix[0]]
+            if len(prefix) == self.size - 1:
+                while True:
+                    for gram in self.gram_log_probabilities:
+                        if gram[0] == prefix[0]:
+                            lst.append(self.gram_log_probabilities[gram])
+                    if lst != []:
+                        new_prefix = (max(lst)[1][1],)
+                        prefix_lst.append(new_prefix[0])
+                        lst.append(new_prefix)
+            else:
+                return lst
 
 
 def encode(storage_instance, corpus) -> list:
