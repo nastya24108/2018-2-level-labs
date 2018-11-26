@@ -94,6 +94,9 @@ class NGramTrie:
                         prefix_lst.append(new_prefix[0])
                         lst.append(new_prefix)
                         break
+                    else:
+                        return lst
+                        break
             else:
                 return lst
 
