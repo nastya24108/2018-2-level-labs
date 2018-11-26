@@ -54,7 +54,7 @@ class NGramTrie:
     def __init__(self, n):
         self.size = n
         self.gram_frequencies = {}
-        gram_log_probabilities = {}
+        self.gram_log_probabilities = {}
         
     def fill_from_sentence(self, sentence: tuple) -> str:
         if sentence and type(sentence) == tuple:
@@ -70,7 +70,15 @@ class NGramTrie:
             return 'ERROR'
 
     def calculate_log_probabilities(self):
-        pass
+        for gram in self.gram_frequencies:
+            number = 0
+            part = gram[:-1]
+            for i, k in enumerate(list(self.gram_frequencies.keys())):
+                if part == k[:-1]:
+                    number += list(self.gram_frequencies.values())[i]
+            p = self.gram_frequencies[gram] / number
+            self.gram_log_probabilities[gram] = math.log(p)
+        return self.gram_log_probabilities
 
     def predict_next_sentence(self, prefix: tuple) -> list:
         pass
