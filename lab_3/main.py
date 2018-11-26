@@ -93,6 +93,7 @@ class NGramTrie:
                         new_prefix = (max(lst)[1][1],)
                         prefix_lst.append(new_prefix[0])
                         lst.append(new_prefix)
+                        break
             else:
                 return lst
 
