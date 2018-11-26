@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
 
 class WordStorage:
-     def __init__(self):
+    def __init__(self):
         self.storage = {}
 
     def put(self, word: str) -> int:
