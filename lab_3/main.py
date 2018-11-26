@@ -40,7 +40,7 @@ class WordStorage:
                 for word in self.storage.keys():
                     if id == self.storage[word]:
                         return word
-         else:
+        else:
             return None
 
     def from_corpus(self, corpus: tuple):
