@@ -123,7 +123,7 @@ def split_by_sentence(text: str) -> list:
         sentences = sentence[i].split()
         word = ''
         for el in sentences:
-            for el_el in
+            for el_el in enumerate(el):
                 if el_el[1] in 'abcdefghijklmnopqrstuvwxyz':
                     word += el_el[1]
             if word:
