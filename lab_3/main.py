@@ -125,8 +125,8 @@ def split_by_sentence(text: str) -> list:
     for i in range(len(sentence)):
         one_sent = ['<s>', ]
         sentences = sentence[i].split()
-        word = ''
         for el in sentences:
+            word = ''
             for el_el in enumerate(el):
                 if el_el[1] in 'abcdefghijklmnopqrstuvwxyz':
                     word += el_el[1]
