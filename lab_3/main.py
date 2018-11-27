@@ -55,7 +55,7 @@ class NGramTrie:
         self.size = n
         self.gram_frequencies = {}
         self.gram_log_probabilities = {}
-        
+
     def fill_from_sentence(self, sentence: tuple) -> str:
         if sentence and type(sentence) == tuple:
             for i in range(len(sentence) - 1):
@@ -94,7 +94,6 @@ class NGramTrie:
                         prefix_lst.append(new_prefix[0])
                         lst.append(new_prefix)
                         break
-                    
             else:
                 break
 
