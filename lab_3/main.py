@@ -34,6 +34,8 @@ class WordStorage:
                 return self.storage[word]
             else:
                 return -1
+        else:
+            return -1
 
     def get_original_by(self, id: int) -> str:
         if id and type(id) == int:
@@ -41,6 +43,8 @@ class WordStorage:
                 for word in self.storage.keys():
                     if id == self.storage[word]:
                         return word
+             else:
+                 return 'UNK'
         else:
             return 'UNK'
 
