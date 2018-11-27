@@ -19,10 +19,11 @@ class WordStorage:
         id = 1
         if word and type(word) == str:
             if word not in self.storage.keys():
-                id = max(self.storage.values()) + 1
-                self.storage[word] = id
-            else:
-                self.storage[word] = id
+                if self.storage:
+                    id = max(self.storage.values()) + 1
+                    self.storage[word] = id
+                else:
+                    self.storage[word] = id
             return self.storage[word]
         else:
             return self.storage
@@ -45,7 +46,8 @@ class WordStorage:
 
     def from_corpus(self, corpus: tuple):
         if corpus and type(corpus) == tuple:
-            WordStorage.put(self, word)
+            for word in corpus:
+                WordStorage.put(self, word)
         else:
             return {}
 
@@ -90,7 +92,7 @@ class NGramTrie:
                         if gram[0] == prefix[0]:
                             lst.append(self.gram_log_probabilities[gram])
                     if lst != []:
-                        new_prefix = (max(lst)[1][1],)
+                        new_prefix = ((max(lst)[1])[1],)
                         prefix_lst.append(new_prefix[0])
                         lst.append(new_prefix)
                         break
