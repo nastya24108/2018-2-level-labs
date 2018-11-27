@@ -121,6 +121,7 @@ def split_by_sentence(text: str) -> list:
 
     import re
     sentence = re.split(r'[.?!]', text)
+    sentence = sentence[:-1]
 
     for i in range(len(sentence)):
         one_sent = ['<s>', ]
