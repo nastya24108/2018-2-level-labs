@@ -94,7 +94,7 @@ class NGramTrie:
                 while True:
                     for gram in self.gram_log_probabilities:
                         if gram[0] == prefix[0]:
-                            lst.append(self.gram_log_probabilities[gram], gram)
+                            lst.append((self.gram_log_probabilities[gram], gram))
                     if lst != []:
                         new_prefix = ((max(lst)[1])[1],)
                         prefix_lst.append(new_prefix[0])
@@ -102,7 +102,7 @@ class NGramTrie:
                         break
                     else:
                         break
-                return lst
+                return prefix_lst
 
 
 def encode(storage_instance, corpus) -> list:
