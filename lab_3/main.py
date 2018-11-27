@@ -105,6 +105,8 @@ class NGramTrie:
                 return prefix_lst
             else:
                 return lst
+        else:
+            return []
 
 
 def encode(storage_instance, corpus) -> list:
