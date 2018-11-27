@@ -96,6 +96,7 @@ class NGramTrie:
                         break
                 else:
                     break
+            return lst
 
 
 def encode(storage_instance, corpus) -> list:
