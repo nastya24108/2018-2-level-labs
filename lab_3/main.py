@@ -103,6 +103,8 @@ class NGramTrie:
                     else:
                         break
                 return prefix_lst
+            else:
+                return lst
 
 
 def encode(storage_instance, corpus) -> list:
@@ -126,6 +128,8 @@ def split_by_sentence(text: str) -> list:
     import re
     sentence = re.split(r'[.?!]', text)
     sentence = sentence[:-1]
+    if len(text) < 2:
+        return []
 
     for i in range(len(sentence)):
         one_sent = ['<s>', ]
