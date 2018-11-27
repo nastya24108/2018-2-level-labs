@@ -33,7 +33,7 @@ class WordStorage:
             if word in self.storage.keys():
                 return self.storage[word]
             else:
-                return None
+                return -1
 
     def get_original_by(self, id: int) -> str:
         if id and type(id) == int:
@@ -42,7 +42,7 @@ class WordStorage:
                     if id == self.storage[word]:
                         return word
         else:
-            return None
+            return 'UNK'
 
     def from_corpus(self, corpus: tuple):
         if corpus and type(corpus) == tuple:
