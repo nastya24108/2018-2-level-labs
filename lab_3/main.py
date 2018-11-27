@@ -120,29 +120,28 @@ def encode(storage_instance, corpus) -> list:
 def split_by_sentence(text: str) -> list:
     if not text:
         return []
-
-    my_text = []
-    text = text.lower()
-    text = text.replace('\n', ' ')
-    if '  ' in text:
-        text = text.replace('  ', ' ')
-
-    import re
-    sentence = re.split(r'[.?!]', text)
-    sentence = sentence[:-1]
-    if len(text) < 2:
-        return []
-
-    for i in range(len(sentence)):
-        one_sent = ['<s>', ]
-        sentences = sentence[i].split()
-        for el in sentences:
-            word = ''
-            for el_el in enumerate(el):
-                if el_el[1] in 'abcdefghijklmnopqrstuvwxyz':
-                    word += el_el[1]
-            if word:
-                one_sent.append(word)
-        one_sent.append('</s>')
-        my_text.append(one_sent)
-    return my_text
+    else:
+        my_text = []
+        text = text.lower()
+        text = text.replace('\n', ' ')
+        if '  ' in text:
+            text = text.replace('  ', ' ')
+        import re
+        sentence = re.split(r'[.?!]', text)
+        sentence = sentence[:-1]
+        if len(text) < 2:
+            return []
+        else:
+            for i in range(len(sentence)):
+                one_sent = ['<s>', ]
+                sentences = sentence[i].split()
+                for el in sentences:
+                    word = ''
+                    for el_el in enumerate(el):
+                        if el_el[1] in 'abcdefghijklmnopqrstuvwxyz':
+                            word += el_el[1]
+                    if word:
+                        one_sent.append(word)
+                one_sent.append('</s>')
+                my_text.append(one_sent)
+            return my_text
