@@ -84,8 +84,8 @@ class NGramTrie:
         if prefix and type(prefix) == tuple:
             lst = []
             prefix_lst = [prefix[0]]
-            if len(prefix) == self.size - 1:
-                while True:
+            while True:
+                if len(prefix) == self.size - 1:
                     for gram in self.gram_log_probabilities:
                         if gram[0] == prefix[0]:
                             lst.append(self.gram_log_probabilities[gram])
@@ -94,8 +94,8 @@ class NGramTrie:
                         prefix_lst.append(new_prefix[0])
                         lst.append(new_prefix)
                         break
-            else:
-                break
+                else:
+                    break
 
 
 def encode(storage_instance, corpus) -> list:
