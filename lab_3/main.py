@@ -96,9 +96,9 @@ class NGramTrie:
                         if gram[0] == prefix[0]:
                             lst.append((self.gram_log_probabilities[gram], gram))
                     if lst != []:
-                        new_prefix = ((max(lst)[1])[1],)
-                        prefix_lst.append(new_prefix[0])
-                        lst.append(new_prefix)
+                        prefix = ((max(lst)[1])[1],)
+                        prefix_lst.append(prefix[0])
+                        lst.append(prefix)
                     else:
                         break
                 return prefix_lst
