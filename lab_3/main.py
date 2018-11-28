@@ -140,6 +140,8 @@ def split_by_sentence(text: str) -> list:
                     for el_el in enumerate(el):
                         if el_el[1] in 'abcdefghijklmnopqrstuvwxyz':
                             word += el_el[1]
+                        else:
+                            return []
                     if word:
                         one_sent.append(word)
                 one_sent.append('</s>')
