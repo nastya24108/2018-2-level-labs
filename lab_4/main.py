@@ -57,15 +57,17 @@ class TfIdfCalculator:
                     continue
                 word_list = []
                 for word in text:
-                    if word not in word_list:
+                    if word not in word_list and isinstance(word, str):
                         word_list.append(word)
                 for element in word_list:
                     count_word_in_corpus = 0
                     for another_text in self.corpus:
                         if element in another_text:
                             count_word_in_corpus += 1
-                    dict_count_texts[element] =count_word_in_corpus
-                    self.idf_values[element] = math.log(len(self.corpus) / dict_count_texts.get(element))
+                    dict_count_texts[element] = count_word_in_corpus
+                    if dict_count_texts.get(element) != 0:
+                        length = len(self.corpus)
+                        self.idf_values[element] = math.log(length / dict_count_texts.get(element))
             return self.idf_values
 
     def calculate(self):
