@@ -84,8 +84,8 @@ class TfIdfCalculator:
         if not self.tf_idf_values or document_index >= len(self.tf_idf_values):
             return ()
         tf_idf_d = self.tf_idf_values[document_index]
-        significance = sorted(tf_idf_d, key=tf_idf_d.__getitem__)
-        return tf_idf_d.get(word), significance.index(word)
+        significance = sorted(tf_idf_d, key=tf_idf_d.__getitem__, reverse=True)
+        return tf_idf_d.get(word.lower()), significance.index(word.lower())
 
 
 # scenario to check your work
