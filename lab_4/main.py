@@ -71,18 +71,18 @@ class TfIdfCalculator:
     def calculate(self):
         if self.tf_values and self.idf_values:
             for elenent in self.tf_values:
-                tf_idf = {}
+                tf_idf_d = {}
                 for word, tf in elenent.items():
-                    tf_idf[word] = tf * self.idf_values.get(word)
-                self.tf_idf_values += [tf_idf]
+                    tf_idf_d[word] = tf * self.idf_values.get(word)
+                self.tf_idf_values += [tf_idf_d]
         return self.tf_idf_values
 
     def report_on(self, word, document_index):
         if not self.tf_idf_values or document_index >= len(self.tf_idf_values):
             return ()
-        tf_idf = self.tf_idf_values[document_index]
-        significance = sorted(tf_idf)
-        return tf_idf.get(word, significance.index(word))
+        tf_idf_d = self.tf_idf_values[document_index]
+        significance = sorted(tf_idf_d)
+        return tf_idf_d.get(word, significance.index(word))
 
 
 # scenario to check your work
