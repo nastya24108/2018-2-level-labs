@@ -41,12 +41,13 @@ class TfIdfCalculator:
         if self.corpus:
             for text in self.corpus:
                 tf = {}
-                len_text = len(text)
-                for word in text:
-                    if word not in tf.keys():
-                        num = text.count(word)
-                        tf[word] = num / len_text
-                self.tf_values += [tf]
+                if text:
+                    len_text = len(text)
+                    for word in text:
+                        if word not in tf.keys():
+                            num = text.count(word)
+                            tf[word] = num / len_text
+                    self.tf_values += [tf]
         return self.tf_values
 
     def calculate_idf(self):
