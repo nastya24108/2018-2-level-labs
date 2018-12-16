@@ -17,17 +17,17 @@ def clean_tokenize_corpus(texts: list) -> list:
             lst_text = []
             words = text.split()
             for ind, el in enumerate(words):
-                el.lower()
+                clean_word = ''
                 if el.isalpha():
-                    lst_text.append(el)
+                    lst_text.append(el.lower())
                 else:
-                    clean_word = ''
-                    for element in el:
+                    for element in el.lower():
                         if element.isalpha():
                             clean_word += element
                     if clean_word:
                         lst_text.append(clean_word)
             lst_corpus.append(lst_text)
+    return lst_corpus
 
 
 class TfIdfCalculator:
