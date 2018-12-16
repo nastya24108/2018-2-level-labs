@@ -65,7 +65,7 @@ class TfIdfCalculator:
                         if element in another_text:
                             count_word_in_corpus += 1
                     dict_count_texts[element] =count_word_in_corpus
-                    self.idf_values[element] = math.log(len(self.corpus / dict_count_texts.get(element)))
+                    self.idf_values[element] = math.log(len(self.corpus) / dict_count_texts.get(element))
             return self.idf_values
 
     def calculate(self):
