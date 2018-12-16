@@ -46,6 +46,9 @@ class TfIdfCalculator:
                 if text:
                     len_text = len(text)
                     for word in text:
+                        if not isinstance(word, str):
+                            len_text -= 1
+                    for word in text:
                         if isinstance(word, str) and word not in tf:
                             num = text.count(word)
                             tf[word] = num / len_text
