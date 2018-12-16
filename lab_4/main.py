@@ -14,6 +14,8 @@ def clean_tokenize_corpus(texts: list) -> list:
     lst_corpus = []
     for text in texts:
         if text and isinstance(text, str):
+            while '<br />' in text:
+                text = text.replace("<br />", " ")
             lst_text = []
             words = text.split()
             for ind, el in enumerate(words):
