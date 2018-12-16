@@ -85,7 +85,7 @@ class TfIdfCalculator:
             return ()
         tf_idf_d = self.tf_idf_values[document_index]
         significance = sorted(tf_idf_d)
-        return tf_idf_d.get(word, significance.index(word))
+        return tf_idf_d.get(word), significance.index(word)
 
 
 # scenario to check your work
